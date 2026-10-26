@@ -54,6 +54,7 @@ await step("páginas inexistentes devuelven 404", async () => {
 await step("filtros combinables reflejados en la URL y navegación atrás", async () => {
   await page.goto(BASE + "/catalogo");
   const count = () => page.locator("main ul li article").count();
+  await page.locator("main ul li article").first().waitFor();
   const total = await count();
   await page.getByRole("complementary", { name: "Filtros" }).getByLabel(/^Botas/).check();
   await page.waitForURL(/categoria=botas/);

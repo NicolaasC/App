@@ -10,9 +10,9 @@ export function EditorialBlock() {
   const image = isDemoPhotoId(editorial.imageId) ? demoImage(editorial.imageId) : null;
 
   return (
-    <section aria-labelledby="editorial-title" className="bg-sand-soft py-20 md:py-28">
+    <section aria-labelledby="editorial-title" className="bg-tone-soft py-20 md:py-28">
       <Container className="grid items-center gap-10 md:grid-cols-2 md:gap-16 lg:gap-24">
-        <div className="relative aspect-[4/5] overflow-hidden bg-sand">
+        <div className="relative aspect-[4/5] overflow-hidden bg-tone">
           <ProductImage
             src={image?.src}
             alt={image?.alt ?? ""}

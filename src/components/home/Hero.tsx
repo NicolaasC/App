@@ -25,7 +25,7 @@ export function Hero() {
             </ButtonLink>
           </div>
         </div>
-        <div className="relative order-1 aspect-[5/4] overflow-hidden bg-sand sm:aspect-[4/3] md:order-2 md:aspect-auto">
+        <div className="relative order-1 aspect-[5/4] overflow-hidden bg-tone sm:aspect-[4/3] md:order-2 md:aspect-auto">
           <ProductImage
             src={image?.src}
             alt={image?.alt ?? ""}

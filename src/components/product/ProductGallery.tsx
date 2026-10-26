@@ -22,7 +22,7 @@ export function ProductGallery({ images, productName, colorName }: ProductGaller
 
   return (
     <div className="flex flex-col gap-3 md:flex-row-reverse md:gap-4">
-      <div className="relative aspect-[4/5] flex-1 overflow-hidden bg-sand-soft">
+      <div className="relative aspect-[4/5] flex-1 overflow-hidden bg-tone-soft">
         <ProductImage
           key={current?.id ?? "vacía"}
           src={current?.src}
@@ -49,7 +49,7 @@ export function ProductGallery({ images, productName, colorName }: ProductGaller
                 aria-label={`Ver imagen ${i + 1} de ${images.length}`}
                 aria-current={i === selected || undefined}
                 className={cn(
-                  "relative block aspect-[4/5] w-full overflow-hidden bg-sand-soft outline-offset-2 transition-opacity",
+                  "relative block aspect-[4/5] w-full overflow-hidden bg-tone-soft outline-offset-2 transition-opacity",
                   i === selected ? "ring-1 ring-ink" : "opacity-70 hover:opacity-100",
                 )}
               >

@@ -140,7 +140,7 @@ export function ProductView({ product, categoryName, details }: ProductViewProps
                     className="sr-only"
                     aria-label={soldOut ? `${c.name}, agotado` : c.name}
                   />
-                  <span className="size-8 rounded-full border border-ink/15" style={{ background: c.swatch }} aria-hidden="true" />
+                  <span className="size-8 rounded-full border border-ink/30" style={{ background: c.swatch }} aria-hidden="true" />
                   {soldOut ? (
                     <span className="absolute h-px w-9 rotate-45 bg-ink/60" aria-hidden="true" />
                   ) : null}

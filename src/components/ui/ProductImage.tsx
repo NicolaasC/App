@@ -33,7 +33,7 @@ export function ProductImage({ src, alt, sizes, focal, priority, className, fall
       <div
         role="img"
         aria-label={alt ? `${alt} (foto no disponible)` : "Foto no disponible"}
-        className={cn("absolute inset-0 flex flex-col items-center justify-center gap-3 bg-sand-soft text-stone", className)}
+        className={cn("absolute inset-0 flex flex-col items-center justify-center gap-3 bg-tone-soft text-stone", className)}
       >
         <svg viewBox="0 0 64 32" className="w-1/3 max-w-24" fill="none" aria-hidden="true">
           <path

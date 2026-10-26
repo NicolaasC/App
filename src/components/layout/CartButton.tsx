@@ -10,7 +10,7 @@ export function CartButton() {
   return (
     <Link
       href="/carrito"
-      className="relative inline-flex size-11 items-center justify-center rounded-sm hover:bg-sand-soft"
+      className="relative inline-flex size-11 items-center justify-center rounded-sm hover:bg-tone-soft"
       aria-label={count ? `Carrito, ${count} ${count === 1 ? "artículo" : "artículos"}` : "Carrito vacío"}
     >
       <ShoppingBag className="size-5" strokeWidth={1.5} aria-hidden="true" />

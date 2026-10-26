@@ -40,9 +40,11 @@ Despliegue objetivo: Vercel. Estado y pendientes: `docs/estado.md`.
 - No usar el dataset de Unsplash (sus términos solo permiten entrenamiento interno de modelos).
 
 ## Diseño
-- Minimalista editorial: marfil/blanco dominan, negro carbón para texto y acciones, salvia y arena como acentos.
+- Minimalista editorial, tema oscuro negro carbón: fondo `canvas` (#141412), superficies `paper`, texto y botón
+  primario `ink` (marfil), acento verde salvia. Tokens en `src/app/globals.css` (los nombres son funciones, no colores).
 - Tipografías: Instrument Sans (funcional) e Instrument Serif (titulares). Radios 2–4 px, sin sombras salvo toasts.
-- Texto pequeño gris: usar `text-muted` (#66655A, AA). `text-stone` (#77766A) solo para decoración o texto grande.
+- Texto secundario: `text-muted` (contraste ≥ 5.5:1). `text-stone` solo para decoración o texto grande.
+- Los SVG de `public/icons` tienen colores fijos: actualizarlos si cambia la paleta.
 - Cada control interactivo debe tener función real, foco visible y estados hover/active/disabled.
 - Respetar `prefers-reduced-motion` (ya global en `globals.css`).
 

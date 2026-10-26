@@ -19,7 +19,7 @@ export function InfoPageView({ slug }: { slug: InfoPageSlug }) {
         <Eyebrow className="mb-4">Información</Eyebrow>
         <h1 className="font-serif text-headline text-balance">{page.title}</h1>
         {label ? (
-          <Badge tone="sand" className="mt-5">
+          <Badge tone="tone" className="mt-5">
             {label}
           </Badge>
         ) : null}

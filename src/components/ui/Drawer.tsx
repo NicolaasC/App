@@ -48,7 +48,7 @@ export function Drawer({ open, onClose, title, side = "right", children, footer,
         if (e.target === ref.current) onClose();
       }}
       className={cn(
-        "fixed inset-y-0 m-0 h-dvh max-h-dvh w-[min(26rem,100vw)] max-w-none bg-ivory p-0 text-ink backdrop:bg-ink/30 backdrop:animate-fade-in",
+        "fixed inset-y-0 m-0 h-dvh max-h-dvh w-[min(26rem,100vw)] max-w-none bg-canvas p-0 text-ink backdrop:bg-black/65 backdrop:animate-fade-in",
         side === "right" ? "left-auto right-0 animate-slide-in-right" : "left-0 right-auto animate-slide-in-left",
         className,
       )}
@@ -60,14 +60,14 @@ export function Drawer({ open, onClose, title, side = "right", children, footer,
             <button
               type="button"
               onClick={onClose}
-              className="-mr-2 inline-flex size-10 items-center justify-center rounded-sm hover:bg-sand-soft"
+              className="-mr-2 inline-flex size-10 items-center justify-center rounded-sm hover:bg-tone-soft"
               aria-label="Cerrar"
             >
               <X className="size-5" strokeWidth={1.5} aria-hidden="true" />
             </button>
           </div>
           <div className="flex-1 overflow-y-auto overscroll-contain">{children}</div>
-          {footer ? <div className="shrink-0 border-t border-line bg-ivory p-5">{footer}</div> : null}
+          {footer ? <div className="shrink-0 border-t border-line bg-canvas p-5">{footer}</div> : null}
         </div>
       ) : null}
     </dialog>

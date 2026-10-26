@@ -32,7 +32,7 @@ export function MobileMenu({ categories }: MobileMenuProps) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="-ml-2 inline-flex size-11 items-center justify-center rounded-sm hover:bg-sand-soft"
+        className="-ml-2 inline-flex size-11 items-center justify-center rounded-sm hover:bg-tone-soft"
         aria-label="Abrir menú"
         aria-haspopup="dialog"
         aria-expanded={open}

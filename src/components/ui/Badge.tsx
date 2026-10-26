@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
-type Tone = "neutral" | "sage" | "sand" | "ink" | "outline";
+type Tone = "neutral" | "sage" | "tone" | "ink" | "outline";
 
 const tones: Record<Tone, string> = {
   neutral: "bg-paper text-ink",
   sage: "bg-sage-soft text-ink",
-  sand: "bg-sand text-ink",
+  tone: "bg-tone text-ink",
   ink: "bg-ink text-paper",
   outline: "border border-line-strong text-muted",
 };

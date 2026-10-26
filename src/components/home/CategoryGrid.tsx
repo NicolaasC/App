@@ -16,7 +16,7 @@ export function CategoryGrid({ categories }: { categories: CategoryWithCount[] }
             return (
               <li key={c.slug} className="w-[62vw] shrink-0 snap-start sm:w-auto">
                 <Link href={`/catalogo/${c.slug}`} className="group block">
-                  <div className="relative aspect-[3/4] overflow-hidden bg-sand-soft">
+                  <div className="relative aspect-[3/4] overflow-hidden bg-tone-soft">
                     <ProductImage
                       src={image?.src}
                       alt=""

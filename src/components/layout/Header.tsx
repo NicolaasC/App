@@ -12,7 +12,7 @@ export async function Header() {
   const navCategories = categories.map((c) => ({ slug: c.slug, name: c.name }));
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-ivory/95 backdrop-blur-sm supports-[backdrop-filter]:bg-ivory/85">
+    <header className="sticky top-0 z-40 border-b border-line bg-canvas/95 backdrop-blur-sm supports-[backdrop-filter]:bg-canvas/85">
       <a
         href="#contenido"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"

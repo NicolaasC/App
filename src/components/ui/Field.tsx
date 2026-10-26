@@ -2,7 +2,7 @@ import { useId, type ComponentProps, type ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 const control =
-  "block w-full rounded-sm border bg-paper px-3.5 text-[0.9375rem] text-ink placeholder:text-stone transition-colors duration-150 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-ink disabled:bg-sand-soft disabled:text-muted";
+  "block w-full rounded-sm border bg-paper px-3.5 text-[0.9375rem] text-ink placeholder:text-stone transition-colors duration-150 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-ink disabled:bg-tone-soft disabled:text-muted";
 
 function describedBy(...ids: Array<string | false | undefined>) {
   const value = ids.filter(Boolean).join(" ");

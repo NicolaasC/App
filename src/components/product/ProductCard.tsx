@@ -13,7 +13,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
 
   return (
     <article className="group relative flex flex-col">
-      <div className="relative aspect-[4/5] overflow-hidden bg-sand-soft">
+      <div className="relative aspect-[4/5] overflow-hidden bg-tone-soft">
         <ProductImage
           src={image?.src}
           alt={image?.alt ?? product.name}
@@ -44,7 +44,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
             <span
               key={c.id}
               title={c.name}
-              className="size-3 rounded-full border border-ink/15"
+              className="size-3 rounded-full border border-ink/30"
               style={{ background: c.swatch }}
             >
               <span className="sr-only">{c.name}</span>

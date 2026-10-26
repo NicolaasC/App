@@ -1,24 +1,30 @@
 @import "tailwindcss";
 
 /*
- * Tokens de diseño. Cambiar la identidad visual = editar este bloque.
- * --color-muted es una variante más oscura del gris cálido (#77766A) para
- * cumplir contraste AA (4.5:1) en texto pequeño sobre marfil.
+ * Tokens de diseño — tema negro carbón. Cambiar la identidad visual = editar
+ * este bloque. Los nombres describen la función, no el color:
+ *   canvas  fondo de página        paper   superficies (tarjetas, campos, footer)
+ *   ink     texto principal y botón primario (claro sobre carbón)
+ *   tone    áreas de imagen/placeholders, tone-soft hover y esqueletos
+ *   muted   texto secundario (contraste ≥ 5.5:1 sobre canvas, paper y tone)
+ *   stone   solo decoración o texto grande
+ *   line    divisores; line-strong bordes de controles (≥ 3:1 sobre paper)
+ *   sage    acento verde salvia; sage-soft fondo de acento
  */
 @theme {
-  --color-ivory: #f4f0e8;
-  --color-paper: #ffffff;
-  --color-ink: #262622;
-  --color-stone: #77766a;
-  --color-muted: #66655a;
+  --color-canvas: #141412;
+  --color-paper: #1c1c19;
+  --color-ink: #f1eee6;
+  --color-stone: #85837a;
+  --color-muted: #a3a196;
   --color-sage: #a9b09e;
-  --color-sage-soft: #dfe2d8;
-  --color-sand: #e3d8c6;
-  --color-sand-soft: #ede6da;
-  --color-line: #d9d2c4;
-  --color-line-strong: #bdb5a5;
-  --color-danger: #9b2c1f;
-  --color-success: #3f5b3a;
+  --color-sage-soft: #2b3027;
+  --color-tone: #262522;
+  --color-tone-soft: #201f1c;
+  --color-line: #2e2d29;
+  --color-line-strong: #6d6b62;
+  --color-danger: #ff9584;
+  --color-success: #a9c79b;
 
   --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
@@ -58,8 +64,11 @@
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
   }
+  html {
+    color-scheme: dark;
+  }
   body {
-    background-color: var(--color-ivory);
+    background-color: var(--color-canvas);
     color: var(--color-ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -67,7 +76,7 @@
   }
   ::selection {
     background-color: var(--color-sage);
-    color: var(--color-ink);
+    color: var(--color-canvas);
   }
   :focus-visible {
     outline: 2px solid var(--color-ink);

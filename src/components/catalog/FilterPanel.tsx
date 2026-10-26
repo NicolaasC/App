@@ -153,7 +153,7 @@ export function FilterPanel({ filters, facets, onChange, lockedCategory }: Filte
                   active ? "border-ink bg-paper" : "border-line-strong hover:border-ink",
                 )}
               >
-                <span className="size-5 rounded-full border border-ink/15" style={{ background: c.swatch }} aria-hidden="true" />
+                <span className="size-5 rounded-full border border-ink/30" style={{ background: c.swatch }} aria-hidden="true" />
                 {c.name}
               </button>
             );

@@ -61,7 +61,7 @@ export function CartView() {
               <li key={item.sku} className="flex gap-4 py-6 sm:gap-6">
                 <Link
                   href={`/producto/${item.snapshot.productSlug}`}
-                  className="relative aspect-[4/5] w-24 shrink-0 overflow-hidden bg-sand-soft sm:w-28"
+                  className="relative aspect-[4/5] w-24 shrink-0 overflow-hidden bg-tone-soft sm:w-28"
                   tabIndex={-1}
                   aria-hidden="true"
                 >
@@ -157,7 +157,7 @@ export function CartView() {
 
 function IssueList({ issues, onDismiss }: { issues: { sku: string; message: string; code: string }[]; onDismiss: () => void }) {
   return (
-    <div role="status" className="mb-6 rounded-sm border border-line-strong bg-sand-soft p-4 text-sm">
+    <div role="status" className="mb-6 rounded-sm border border-line-strong bg-tone-soft p-4 text-sm">
       <div className="flex items-start gap-3">
         <AlertTriangle className="mt-0.5 size-4 shrink-0" strokeWidth={1.5} aria-hidden="true" />
         <div className="flex-1">

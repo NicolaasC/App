@@ -43,7 +43,7 @@ export function SizeGuide({ sizes }: { sizes: number[] }) {
               </tbody>
             </table>
           </div>
-          <p className="rounded-sm bg-sand-soft p-3 text-xs text-ink/80">
+          <p className="rounded-sm bg-tone-soft p-3 text-xs text-ink/80">
             Las equivalencias son orientativas y pueden variar según el fabricante, la horma y el modelo. Cuando
             tengamos la tabla oficial de cada proveedor la mostraremos aquí.
           </p>

@@ -37,7 +37,7 @@ export function Modal({ open, onClose, title, children, className, hideTitle }: 
         if (e.target === ref.current) onClose();
       }}
       className={cn(
-        "m-auto w-[min(40rem,calc(100vw-2rem))] max-h-[min(44rem,calc(100dvh-2rem))] rounded-sm bg-ivory p-0 text-ink backdrop:bg-ink/30 backdrop:animate-fade-in animate-fade-in",
+        "m-auto w-[min(40rem,calc(100vw-2rem))] max-h-[min(44rem,calc(100dvh-2rem))] rounded-sm bg-canvas p-0 text-ink backdrop:bg-black/65 backdrop:animate-fade-in animate-fade-in",
         className,
       )}
     >
@@ -48,7 +48,7 @@ export function Modal({ open, onClose, title, children, className, hideTitle }: 
             <button
               type="button"
               onClick={onClose}
-              className="-mr-2 -mt-1 ml-auto inline-flex size-10 items-center justify-center rounded-sm hover:bg-sand-soft"
+              className="-mr-2 -mt-1 ml-auto inline-flex size-10 items-center justify-center rounded-sm hover:bg-tone-soft"
               aria-label="Cerrar"
             >
               <X className="size-5" strokeWidth={1.5} aria-hidden="true" />

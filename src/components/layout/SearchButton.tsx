@@ -15,7 +15,7 @@ export function SearchButton() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="inline-flex size-11 items-center justify-center rounded-sm hover:bg-sand-soft"
+        className="inline-flex size-11 items-center justify-center rounded-sm hover:bg-tone-soft"
         aria-label="Buscar"
         aria-haspopup="dialog"
       >
