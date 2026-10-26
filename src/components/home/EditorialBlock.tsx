@@ -3,6 +3,7 @@ import { demoImage, isDemoPhotoId } from "@/data/demo/images";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container, Eyebrow } from "@/components/ui/Container";
 import { ProductImage } from "@/components/ui/ProductImage";
+import { PhotoCredit } from "@/components/ui/PhotoCredit";
 
 export function EditorialBlock() {
   const { editorial } = siteConfig;
@@ -19,6 +20,9 @@ export function EditorialBlock() {
             sizes="(min-width: 768px) 45vw, 100vw"
             fallbackLabel="Imagen editorial pendiente"
           />
+          {image ? (
+            <PhotoCredit credit={image.credit} className="absolute bottom-3 left-3 rounded-sm bg-paper/85 px-2 py-1" />
+          ) : null}
         </div>
         <div className="max-w-md">
           <Eyebrow className="mb-5">{editorial.eyebrow}</Eyebrow>

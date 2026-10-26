@@ -48,5 +48,6 @@ Despliegue objetivo: Vercel. Estado y pendientes: `docs/estado.md`.
 
 ## Comandos
 - `npm run dev` · `npm run build` · `npm run lint` · `npm run typecheck` · `npm test` · `npm run test:e2e`
-- `npm run images:fetch` descarga las fotos de demostración (requiere acceso a unsplash.com).
+- Fotos demo: elegirlas con el conector de Unsplash (verificar `premium: false`), registrar uso con `download_asset`,
+  enlazar desde images.unsplash.com y mostrar el crédito (`PhotoCredit`).
 - Antes de dar algo por terminado: typecheck, lint, test y build deben pasar.

@@ -12,5 +12,6 @@ export const footerNav = {
   legal: [
     { label: "Privacidad y datos personales", href: "/privacidad" },
     { label: "Términos y condiciones", href: "/terminos" },
+    { label: "Créditos de fotografías", href: "/creditos" },
   ],
 };

@@ -12,8 +12,9 @@ const nextConfig: NextConfig = {
   partialPrefetching: true,
   poweredByHeader: false,
   images: {
-    // Las fotos de demostración se descargan a /public/images/demo (ver scripts/fetch-demo-images.mjs).
+    // Fotos propias en /public/images; fotos demo enlazadas desde el CDN de Unsplash.
     localPatterns: [{ pathname: "/images/**", search: "" }],
+    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com", pathname: "/photo-*" }],
     qualities: [70, 85],
     formats: ["image/avif", "image/webp"],
   },

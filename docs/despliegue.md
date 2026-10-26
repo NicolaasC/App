@@ -31,12 +31,11 @@ variable por ambiente (Preview / Production). Secretos solo como variables sin p
 5. `CATALOG_SOURCE=supabase`.
 
 ## 7. Git
-Este repositorio aún no tiene remoto. Crear un repositorio privado (GitHub), `git remote add origin …`,
-`git push -u origin main`. Proteger `main` y trabajar por ramas + PR.
+Repositorio: `github.com/NicolaasC/App` (rama `main`). Recomendado: proteger `main` y trabajar por ramas + PR.
 
 ## 8. Configuración de Vercel
-- Importar el repositorio; framework Next.js. `vercel.json` define `npm ci` y
-  `npm run images:fetch && npm run build`, y la tarea programada diaria de vencimiento de pedidos
+- Importar el repositorio; framework Next.js. `vercel.json` define `npm ci`, `npm run build`
+  y la tarea programada diaria de vencimiento de pedidos
   (en plan Hobby, Vercel Cron solo permite ejecuciones diarias; con mayor volumen conviene cada 15–30 min).
 - `NEXT_PUBLIC_SITE_URL` por ambiente; `CRON_SECRET` para la tarea programada.
 

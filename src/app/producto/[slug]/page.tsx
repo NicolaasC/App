@@ -11,6 +11,7 @@ import { getCategory, getProduct, getProducts, getRelatedProducts } from "@/serv
 import { ProductView } from "@/components/product/ProductView";
 import { ProductGrid } from "@/components/product/ProductCard";
 import { Container, SectionHeading } from "@/components/ui/Container";
+import { PhotoCredit } from "@/components/ui/PhotoCredit";
 
 export async function generateStaticParams() {
   const products = await getProducts();
@@ -101,17 +102,11 @@ export default async function ProductPage({ params }: PageProps<"/producto/[slug
       </Detail>
       <Detail title="Sobre las fotos">
         <p>Fotografía de stock usada como referencia; no muestra el producto exacto.</p>
-        <ul className="mt-2 space-y-1 text-xs text-muted">
+        <div className="mt-2 space-y-1">
           {credits.map((c) => (
-            <li key={c.sourceUrl}>
-              {c.author ? `Foto: ${c.author}` : "Autoría por confirmar"} ·{" "}
-              <a href={c.sourceUrl} className="underline underline-offset-2" rel="noopener noreferrer" target="_blank">
-                Unsplash
-              </a>{" "}
-              · {c.license}
-            </li>
+            <PhotoCredit key={c.sourceUrl} credit={c} className="text-xs" />
           ))}
-        </ul>
+        </div>
       </Detail>
     </div>
   );

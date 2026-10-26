@@ -2,6 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
   "installCommand": "npm ci",
-  "buildCommand": "npm run images:fetch && npm run build",
+  "buildCommand": "npm run build",
   "crons": [{ "path": "/api/cron/expirar-pedidos", "schedule": "17 6 * * *" }]
 }

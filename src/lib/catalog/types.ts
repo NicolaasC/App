@@ -19,12 +19,14 @@ export interface ImageCredit {
   author: string | null;
   /** Página de origen de la foto (p. ej. unsplash.com/photos/...). */
   sourceUrl: string;
+  /** Perfil del autor, para la atribución. */
+  authorUrl?: string;
   license: "Unsplash License";
 }
 
 export interface CatalogImage {
   id: string;
-  /** Ruta servida desde /public, o null si el archivo aún no se ha descargado. */
+  /** URL absoluta (Unsplash) o ruta en /public; null = sin foto todavía. */
   src: string | null;
   alt: string;
   /** Proporciones reales si se conocen (tras descargar el archivo). */

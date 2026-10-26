@@ -1,8 +1,14 @@
 "use client";
 
-import Image from "next/image";
+import Image, { type ImageLoader } from "next/image";
 import { useState } from "react";
 import { cn } from "@/lib/cn";
+
+/** Las fotos de Unsplash se redimensionan en su propio CDN (imgix), como piden sus directrices. */
+const unsplashLoader: ImageLoader = ({ src, width, quality }) =>
+  `${src}${src.includes("?") ? "&" : "?"}w=${width}&q=${quality ?? 70}&auto=format&fit=max`;
+
+const isUnsplash = (src: string) => src.startsWith("https://images.unsplash.com/");
 
 interface ProductImageProps {
   src: string | null | undefined;
@@ -52,6 +58,7 @@ export function ProductImage({ src, alt, sizes, focal, priority, className, fall
       fill
       sizes={sizes}
       quality={70}
+      loader={isUnsplash(src) ? unsplashLoader : undefined}
       priority={priority}
       onError={() => setFailed(true)}
       className={cn("object-cover", className)}

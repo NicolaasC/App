@@ -16,11 +16,10 @@ Colombia y pesos colombianos. Preparada para desplegarse en Vercel con Supabase 
 ```bash
 npm ci
 cp .env.example .env.local      # valores por defecto = modo demostración
-npm run images:fetch            # descarga las fotos demo de Unsplash (requiere internet)
 npm run dev                     # http://localhost:3000
 ```
 
-Sin `images:fetch` la tienda funciona igual y muestra placeholders.
+Las fotos de demostración se cargan desde el CDN de Unsplash; sin conexión se muestran placeholders.
 
 ## Scripts
 
@@ -31,7 +30,6 @@ Sin `images:fetch` la tienda funciona igual y muestra placeholders.
 | `npm run lint` | ESLint (config de Next.js) |
 | `npm test` | Vitest: unitarias siempre; integración si `TEST_DATABASE_URL` está definida |
 | `npm run test:e2e` | Recorridos en Chromium contra `BASE_URL` (por defecto `http://localhost:3100`) |
-| `npm run images:fetch` | Descarga y optimiza las fotos de demostración |
 | `npm run db:seed-demo` | Carga el catálogo demo en `DATABASE_URL` |
 
 ## Arquitectura

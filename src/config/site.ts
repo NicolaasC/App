@@ -48,7 +48,7 @@ export const siteConfig = {
     primaryCta: { label: "Explorar colección", href: "/catalogo" },
     secondaryCta: { label: "Descubrir novedades", href: "/catalogo?orden=novedades" },
     /** ID de imagen en src/data/demo/images.ts */
-    imageId: "lifestyle-street-walk",
+    imageId: "lifestyle-calle-sombras",
   },
 
   editorial: {
@@ -59,7 +59,7 @@ export const siteConfig = {
       "Una selección cuidada de calzado para el día a día, el trabajo y los fines de semana, presentada con claridad para que elegir sea sencillo.",
     ],
     cta: { label: "Ver el catálogo", href: "/catalogo" },
-    imageId: "lifestyle-boots-pair",
+    imageId: "lifestyle-banca",
   },
 
   /** Colecciones destacadas en la home. Los productos salen del catálogo por etiqueta. */

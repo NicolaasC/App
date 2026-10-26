@@ -94,7 +94,7 @@ await step("ficha: exige talla, bloquea tallas agotadas y agrega al carrito", as
 });
 
 await step("producto agotado no se puede agregar", async () => {
-  await page.goto(BASE + "/producto/tenis-nocturno-dorado-azul");
+  await page.goto(BASE + "/producto/tenis-nocturno-bicolor");
   assert.equal(await page.getByRole("button", { name: "Agotado" }).isDisabled(), true);
 });
 

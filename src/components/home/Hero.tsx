@@ -3,6 +3,7 @@ import { demoImage, isDemoPhotoId } from "@/data/demo/images";
 import { ButtonLink } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Container";
 import { ProductImage } from "@/components/ui/ProductImage";
+import { PhotoCredit } from "@/components/ui/PhotoCredit";
 
 export function Hero() {
   const { hero } = siteConfig;
@@ -33,6 +34,9 @@ export function Hero() {
             priority
             fallbackLabel="Imagen editorial pendiente"
           />
+          {image ? (
+            <PhotoCredit credit={image.credit} className="absolute bottom-3 right-3 rounded-sm bg-paper/85 px-2 py-1" />
+          ) : null}
         </div>
       </div>
     </section>
