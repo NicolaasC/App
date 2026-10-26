@@ -30,8 +30,12 @@ variable por ambiente (Preview / Production). Secretos solo como variables sin p
 4. Cargar catálogo: real (pendiente de herramienta de administración) o demo con `npm run db:seed-demo` solo en staging.
 5. `CATALOG_SOURCE=supabase`.
 
-## 7. Git
-Repositorio: `github.com/NicolaasC/App` (rama `main`). Recomendado: proteger `main` y trabajar por ramas + PR.
+## 7. Git y ramas
+Repositorio: `github.com/NicolaasC/App`. Proyecto Vercel: `tienda-calzado` (equipo Nimacor).
+
+- `main` = **producción** en Vercel (`tienda-calzado.vercel.app`). Solo se actualiza con autorización expresa.
+- `desarrollo` (y cualquier otra rama) = **Preview**. Todo el trabajo se sube aquí primero.
+- Recomendado: proteger `main` en GitHub (Settings → Branches) para exigir PR.
 
 ## 8. Configuración de Vercel
 - Importar el repositorio; framework Next.js. `vercel.json` define `npm ci`, `npm run build`

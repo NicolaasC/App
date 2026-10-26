@@ -38,8 +38,8 @@
 5. **Logística**: transportadora, cobertura, tarifas, tiempos, envío gratis, reglas Bogotá vs. resto del país.
 6. **Legal**: razón social, NIT, dirección, canales de atención, políticas (cambios, retracto, reversión,
    garantía, privacidad, términos) revisadas por un abogado.
-7. **Infraestructura**: crear repositorio Git remoto, proyecto Vercel y proyectos Supabase (staging/producción);
-   dominio.
+7. **Infraestructura**: GitHub (`NicolaasC/App`) y Vercel (`tienda-calzado`) listos. Falta: proyectos Supabase
+   (staging/producción), cuenta Wompi y dominio.
 8. **Presupuesto**: define plan de Vercel (frecuencia de cron), Supabase (backups) y si se construye el panel
    administrativo ahora.
 

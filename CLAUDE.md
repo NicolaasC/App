@@ -46,6 +46,10 @@ Despliegue objetivo: Vercel. Estado y pendientes: `docs/estado.md`.
 - Cada control interactivo debe tener función real, foco visible y estados hover/active/disabled.
 - Respetar `prefers-reduced-motion` (ya global en `globals.css`).
 
+## Git y despliegue
+- Trabajar en la rama `desarrollo` (genera Previews en Vercel). `main` despliega a PRODUCCIÓN:
+  nunca hacer push/merge a `main` sin autorización expresa del usuario.
+
 ## Comandos
 - `npm run dev` · `npm run build` · `npm run lint` · `npm run typecheck` · `npm test` · `npm run test:e2e`
 - Fotos demo: elegirlas con el conector de Unsplash (verificar `premium: false`), registrar uso con `download_asset`,
