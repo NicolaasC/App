@@ -2,6 +2,8 @@ import "server-only";
 import { demoCategories } from "@/data/demo/categories";
 import { demoProducts } from "@/data/demo/products";
 import type { Category, Product, Variant } from "@/lib/catalog/types";
+import { getSql } from "@/server/db";
+import { createPostgresCatalog } from "./postgres-catalog";
 
 /**
  * Contrato de acceso a datos del catálogo. La implementación de demostración
@@ -49,9 +51,10 @@ export function catalogRepository(): CatalogRepository {
   if (repository) return repository;
   const source = process.env.CATALOG_SOURCE ?? "demo";
   if (source === "supabase") {
-    throw new Error(
-      "CATALOG_SOURCE=supabase aún no está implementado. Usa 'demo' o completa la fase de backend.",
-    );
+    const sql = getSql();
+    if (!sql) throw new Error("CATALOG_SOURCE=supabase requiere DATABASE_URL.");
+    repository = createPostgresCatalog(sql);
+    return repository;
   }
   repository = createInMemoryCatalog(demoCategories, demoProducts);
   return repository;

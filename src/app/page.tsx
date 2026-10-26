@@ -26,12 +26,22 @@ function SeeAll({ href, label = "Ver todo" }: { href: string; label?: string }) 
 }
 
 export default async function HomePage() {
-  const [categories, featured, newArrivals, collections] = await Promise.all([
+  const [categories, featured, allNew, allCollections] = await Promise.all([
     getVisibleCategories(),
     getFeaturedProducts(8),
-    getNewArrivals(4),
-    Promise.all(siteConfig.homeCollections.map((tag) => getCollection(tag, 4))),
+    getNewArrivals(12),
+    Promise.all(siteConfig.homeCollections.map((tag) => getCollection(tag, 12))),
   ]);
+
+  // Evita repetir el mismo producto en varias secciones de la home.
+  const shown = new Set(featured.map((p) => p.id));
+  const take = <T extends { id: string }>(items: T[], limit: number) => {
+    const picked = items.filter((p) => !shown.has(p.id)).slice(0, limit);
+    picked.forEach((p) => shown.add(p.id));
+    return picked;
+  };
+  const newArrivals = take(allNew, 4);
+  const collections = allCollections.map((c) => ({ ...c, products: take(c.products, 4) }));
 
   return (
     <>
@@ -70,7 +80,7 @@ export default async function HomePage() {
       ) : null}
 
       {collections
-        .filter((c) => c.products.length)
+        .filter((c) => c.products.length >= 2)
         .map((c) => (
           <section key={c.tag} aria-labelledby={`coleccion-${c.tag}`} className="pb-20 md:pb-28">
             <Container>
@@ -78,7 +88,7 @@ export default async function HomePage() {
                 id={`coleccion-${c.tag}`}
                 eyebrow="Colección"
                 title={c.title}
-                action={c.total > c.products.length ? <SeeAll href={`/catalogo?coleccion=${c.tag}`} /> : undefined}
+                action={<SeeAll href={`/catalogo?coleccion=${c.tag}`} />}
               />
               {c.description ? <p className="-mt-4 mb-10 max-w-md text-sm text-muted">{c.description}</p> : null}
               <ProductGrid products={c.products} />

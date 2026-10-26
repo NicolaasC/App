@@ -77,7 +77,7 @@ export function useCartQuote() {
 }
 
 /** Aplica al carrito local las correcciones del servidor. */
-function reconcile(quote: CartQuote) {
+export function reconcile(quote: CartQuote) {
   const bySku = new Map(quote.lines.map((l) => [l.sku, l]));
   const removed = new Set(
     quote.issues.filter((i) => i.code === "not_found" || i.code === "unavailable").map((i) => i.sku),

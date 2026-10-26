@@ -26,16 +26,16 @@ export function ProductCard({ product, priority = false }: { product: Product; p
           {soldOut ? <Badge tone="neutral">Agotado</Badge> : product.isNew ? <Badge tone="sage">Nuevo</Badge> : null}
         </div>
       </div>
-      <div className="mt-4 flex items-start justify-between gap-3">
+      <div className="mt-3.5 flex flex-col gap-1 sm:mt-4 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
         <div className="min-w-0">
           <h3 className="text-[0.9375rem] font-medium leading-snug">
             <Link href={`/producto/${product.slug}`} className="after:absolute after:inset-0 focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-4 focus-visible:after:outline-ink">
               {product.name}
             </Link>
           </h3>
-          <p className="mt-0.5 truncate text-sm text-muted">{product.shortDescription}</p>
+          <p className="mt-0.5 hidden truncate text-sm text-muted sm:block">{product.shortDescription}</p>
         </div>
-        <Price price={product.price} compareAtPrice={product.compareAtPrice} className="shrink-0 text-[0.9375rem]" />
+        <Price price={product.price} compareAtPrice={product.compareAtPrice} className="shrink-0 text-sm sm:text-[0.9375rem]" />
       </div>
       {product.colors.length > 1 ? (
         <div className="mt-2.5 flex items-center gap-1.5">

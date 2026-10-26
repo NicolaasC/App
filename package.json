@@ -10,12 +10,14 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "db:seed-demo": "tsx scripts/seed-demo.ts",
     "test:e2e": "node scripts/e2e-smoke.mjs",
     "images:fetch": "node scripts/fetch-demo-images.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.61.0",
     "next": "16.4.3",
+    "postgres": "^3.4.9",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "server-only": "^0.0.1",
@@ -29,6 +31,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5",
     "vitest": "^4.1.12"
   }

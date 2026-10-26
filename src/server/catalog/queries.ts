@@ -1,4 +1,5 @@
 import "server-only";
+import { cacheLife, cacheTag } from "next/cache";
 import type { Category, Product } from "@/lib/catalog/types";
 import { productAvailability } from "@/lib/catalog/variants";
 import { sortProducts } from "@/lib/catalog/filters";
@@ -11,6 +12,9 @@ export interface CategoryWithCount extends Category {
 
 /** Categorías visibles: solo las que tienen productos publicados (o decisión editorial). */
 export async function getVisibleCategories(): Promise<CategoryWithCount[]> {
+  "use cache";
+  cacheLife("minutes");
+  cacheTag("catalog");
   const repo = catalogRepository();
   const [categories, products] = await Promise.all([repo.listCategories(), repo.listProducts()]);
   return categories
@@ -25,18 +29,30 @@ export async function getVisibleCategories(): Promise<CategoryWithCount[]> {
 }
 
 export async function getCategory(slug: string): Promise<CategoryWithCount | null> {
+  "use cache";
+  cacheLife("minutes");
+  cacheTag("catalog");
   return (await getVisibleCategories()).find((c) => c.slug === slug) ?? null;
 }
 
 export async function getProducts(): Promise<Product[]> {
+  "use cache";
+  cacheLife("minutes");
+  cacheTag("catalog");
   return catalogRepository().listProducts();
 }
 
 export async function getProduct(slug: string): Promise<Product | null> {
+  "use cache";
+  cacheLife("minutes");
+  cacheTag("catalog");
   return catalogRepository().getProductBySlug(slug);
 }
 
 export async function getFeaturedProducts(limit = 8): Promise<Product[]> {
+  "use cache";
+  cacheLife("minutes");
+  cacheTag("catalog");
   const products = await getProducts();
   return sortProducts(
     products.filter((p) => p.featured && productAvailability(p) !== "out_of_stock"),
@@ -45,6 +61,9 @@ export async function getFeaturedProducts(limit = 8): Promise<Product[]> {
 }
 
 export async function getNewArrivals(limit = 4): Promise<Product[]> {
+  "use cache";
+  cacheLife("minutes");
+  cacheTag("catalog");
   const products = await getProducts();
   return sortProducts(products.filter((p) => p.isNew), "novedades").slice(0, limit);
 }
@@ -65,6 +84,9 @@ export const COLLECTION_LABELS: Record<string, { title: string; description: str
 };
 
 export async function getCollection(tag: string, limit = 4) {
+  "use cache";
+  cacheLife("minutes");
+  cacheTag("catalog");
   const products = await getProducts();
   const items = sortProducts(products.filter((p) => p.collections.includes(tag)), "relevancia");
   const label = COLLECTION_LABELS[tag] ?? { title: tag, description: "" };
@@ -72,6 +94,9 @@ export async function getCollection(tag: string, limit = 4) {
 }
 
 export async function getRelatedProducts(product: Product, limit = 4): Promise<Product[]> {
+  "use cache";
+  cacheLife("minutes");
+  cacheTag("catalog");
   const products = (await getProducts()).filter((p) => p.id !== product.id);
   const score = (p: Product) =>
     (p.category === product.category ? 3 : 0) +

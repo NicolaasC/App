@@ -25,7 +25,12 @@ function storage(): Storage | null {
 function hydrate() {
   if (hydrated || typeof window === "undefined") return;
   hydrated = true;
-  state = parseStoredCart(storage()?.getItem(CART_STORAGE_KEY) ?? null);
+  try {
+    state = parseStoredCart(storage()?.getItem(CART_STORAGE_KEY) ?? null);
+  } catch {
+    // Almacenamiento bloqueado (p. ej. modo privado): carrito solo en memoria.
+    state = EMPTY_CART;
+  }
   window.addEventListener("storage", (event) => {
     if (event.key !== CART_STORAGE_KEY) return;
     state = parseStoredCart(event.newValue);
