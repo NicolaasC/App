@@ -38,7 +38,7 @@ export function ProductImage({ src, alt, sizes, focal, priority, className, fall
           />
           <path d="M4 27h56" stroke="currentColor" strokeWidth="1.4" />
         </svg>
-        <span className="px-4 text-center text-[0.6875rem] uppercase tracking-[0.16em]">
+        <span className="px-4 text-center text-[0.6875rem] uppercase tracking-[0.16em] text-muted">
           {fallbackLabel ?? "Foto pendiente"}
         </span>
       </div>

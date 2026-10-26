@@ -178,3 +178,17 @@ run("flujo completo: checkout → Wompi → webhook → pedido pagado", () => {
     expect(hashToken("abc")).not.toContain("abc");
   });
 });
+
+describe("tarea programada de vencimiento", () => {
+  it("rechaza llamadas sin el secreto correcto", async () => {
+    vi.resetModules();
+    vi.stubEnv("CRON_SECRET", "s".repeat(32));
+    const { GET } = await import("@/app/api/cron/expirar-pedidos/route");
+    expect((await GET(new Request("https://x/api/cron"))).status).toBe(401);
+    expect((await GET(new Request("https://x/api/cron", { headers: { authorization: "Bearer otro" } }))).status).toBe(401);
+    vi.stubEnv("DATABASE_URL", "");
+    const ok = await GET(new Request("https://x/api/cron", { headers: { authorization: `Bearer ${"s".repeat(32)}` } }));
+    expect(ok.status).toBe(503);
+    vi.unstubAllEnvs();
+  });
+});

@@ -2,7 +2,7 @@
 
 import { SlidersHorizontal, X, SearchX } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useOptimistic, useState, useTransition } from "react";
 import {
   applyFilters,
   countActiveFilters,
@@ -36,10 +36,12 @@ export function CatalogView({ products, facets, lockedCategory }: CatalogViewPro
   const [isPending, startTransition] = useTransition();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const filters = useMemo(() => {
+  const urlFilters = useMemo(() => {
     const parsed = parseFilters(new URLSearchParams(searchParams.toString()));
     return lockedCategory ? { ...parsed, categories: [lockedCategory] } : parsed;
   }, [searchParams, lockedCategory]);
+  // Los controles reflejan el cambio al instante mientras la URL se actualiza.
+  const [filters, setOptimisticFilters] = useOptimistic(urlFilters);
 
   const results = useMemo(() => applyFilters(products, filters), [products, filters]);
   const activeCount = countActiveFilters(filters) - (lockedCategory ? 1 : 0);
@@ -49,6 +51,7 @@ export function CatalogView({ products, facets, lockedCategory }: CatalogViewPro
     const query = params.toString();
     const url = query ? `${pathname}?${query}` : pathname;
     startTransition(() => {
+      setOptimisticFilters(lockedCategory ? { ...next, categories: [lockedCategory] } : next);
       if (mode === "push") router.push(url, { scroll: false });
       else router.replace(url, { scroll: false });
     });
@@ -156,6 +159,7 @@ export function CatalogView({ products, facets, lockedCategory }: CatalogViewPro
         </div>
 
         <div className={cn("transition-opacity duration-200", isPending && "opacity-60")}>
+          <h2 className="sr-only">Resultados</h2>
           {results.length ? (
             <ProductGrid products={results} priorityCount={4} />
           ) : (
